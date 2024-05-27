@@ -1,0 +1,19 @@
+.pedro-pe-spinner {
+    width: 100%;
+    height: auto;
+    max-width: 280px;
+    background: no-repeat center center;
+    /*animation: pedro-pe-spinner 1s ease infinite;*/
+    opacity: .8;
+    aspect-ratio: 1;
+}
+
+.on-twitter {
+    max-width: 100px !important;
+}
+
+@keyframes pedro-pe-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
