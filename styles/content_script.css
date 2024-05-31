@@ -12,6 +12,10 @@
     max-width: 100px !important;
 }
 
+.on-github {
+    max-width: 100px !important;
+}
+
 @keyframes pedro-pe-spinner {
     to {
         transform: rotate(360deg);

@@ -1,4 +1,4 @@
-let DEBUG = true
+const DEBUG = false
 
 function debug(value) {
     if (DEBUG) {
@@ -47,6 +47,15 @@ const sites = {
                 spinner.innerHTML = imgString.replace('pedro-pe-spinner', 'pedro-pe-spinner on-twitter');
             }
         }
+    ],
+    'github.com': [
+        {
+            url: '*',
+            selectors: ['loading-spinner'],
+            action: (spinner, _descriptor) => {
+                spinner.innerHTML = imgString.replace('pedro-pe-spinner', 'pedro-pe-spinner on-github');
+            }
+        }
     ]
 }
 
@@ -59,10 +68,12 @@ const scanForSpinner = () => {
     for (const [site, spinnerDescriptors] of Object.entries(sites)) {
         if (window.location.host.includes(site)) {
             const descriptor = spinnerDescriptors.filter(({url}) => url === "*" || window.location.pathname.includes(url)).at(0)
-
+            debug(`🦝 about activation for ${site}`)
             if (descriptor) {
                 INIT_OBSERVER = true
                 CURRENT_DESCRIPTOR = descriptor
+
+                debug(`🦝 activated for ${site}`)
 
                 for (const selector of descriptor.selectors) {
                     const target = document.querySelector(selector)
